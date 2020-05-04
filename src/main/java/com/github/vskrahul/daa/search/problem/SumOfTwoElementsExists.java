@@ -1,9 +1,9 @@
-package com.github.vskrahul.daaa.search.problem;
+package com.github.vskrahul.daa.search.problem;
 
-import com.github.vskrahul.daaa.search.BinarySearch;
-import com.github.vskrahul.daaa.search.Search;
-import com.github.vskrahul.daaa.sort.MergeSort;
-import com.github.vskrahul.daaa.sort.Sort;
+import com.github.vskrahul.daa.search.BinarySearch;
+import com.github.vskrahul.daa.search.Search;
+import com.github.vskrahul.daa.sort.MergeSort;
+import com.github.vskrahul.daa.sort.Sort;
 
 public class SumOfTwoElementsExists {
 

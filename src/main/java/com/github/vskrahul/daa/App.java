@@ -1,7 +1,7 @@
-package com.github.vskrahul.daaa;
+package com.github.vskrahul.daa;
 
-import com.github.vskrahul.daaa.search.BinarySearch;
-import com.github.vskrahul.daaa.search.Search;
+import com.github.vskrahul.daa.search.BinarySearch;
+import com.github.vskrahul.daa.search.Search;
 
 /**
  * Hello world!

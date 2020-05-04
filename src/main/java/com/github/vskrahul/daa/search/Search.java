@@ -1,4 +1,4 @@
-package com.github.vskrahul.daaa.search;
+package com.github.vskrahul.daa.search;
 
 public interface Search<T> {
 

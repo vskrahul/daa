@@ -1,6 +1,6 @@
-package com.github.vskrahul.daaa.sort;
+package com.github.vskrahul.daa.sort;
 
-import static com.github.vskrahul.daaa.utils.ArrayUtils.print;
+import static com.github.vskrahul.daa.utils.ArrayUtils.print;
 
 /**
  * @author Rahul Vishvakarma

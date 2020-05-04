@@ -1,6 +1,6 @@
-package com.github.vskrahul.daaa.search;
+package com.github.vskrahul.daa.search;
 
-import com.github.vskrahul.daaa.utils.ArrayUtils;
+import com.github.vskrahul.daa.utils.ArrayUtils;
 
 public abstract class AbstractSearch<T extends Comparable<T>> implements Search<T> {
 	

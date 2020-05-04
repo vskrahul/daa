@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.github.vskrahul.daaa.sort;
+package com.github.vskrahul.daa.sort;
 
 /**
  * @author Rahul Vishvakarma

@@ -1,4 +1,4 @@
-package com.github.vskrahul.daaa.utils;
+package com.github.vskrahul.daa.utils;
 
 import java.util.Arrays;
 

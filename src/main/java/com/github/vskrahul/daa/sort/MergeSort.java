@@ -1,4 +1,4 @@
-package com.github.vskrahul.daaa.sort;
+package com.github.vskrahul.daa.sort;
 
 import java.util.Arrays;
 

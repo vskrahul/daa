@@ -1,6 +1,6 @@
-package com.github.vskrahul.daaa.sort;
+package com.github.vskrahul.daa.sort;
 
-import static com.github.vskrahul.daaa.utils.ArrayUtils.*;
+import static com.github.vskrahul.daa.utils.ArrayUtils.*;
 
 public class InsertionSort<T extends Comparable<T>> extends AbstractSort<T> {
 
