@@ -4,6 +4,13 @@ import static com.github.vskrahul.daaa.utils.ArrayUtils.*;
 
 public class InsertionSort<T extends Comparable<T>> extends AbstractSort<T> {
 
+	public InsertionSort() {
+	}
+	
+	public InsertionSort(boolean trace) {
+		super(trace);
+	}
+	
 	@Override
 	protected void execute(T[] array) {
 		

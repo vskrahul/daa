@@ -4,6 +4,13 @@ import java.util.Arrays;
 
 public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
 
+	public MergeSort() {
+	}
+	
+	public MergeSort(boolean trace) {
+		super(trace);
+	}
+	
 	@Override
 	protected void execute(T[] array) {
 		mergeSort(array, 0, array.length - 1);

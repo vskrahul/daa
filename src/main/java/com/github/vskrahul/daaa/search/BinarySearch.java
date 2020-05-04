@@ -2,6 +2,13 @@ package com.github.vskrahul.daaa.search;
 
 public class BinarySearch<T extends Comparable<T>> extends AbstractSearch<T> {
 
+	public BinarySearch() {
+	}
+	
+	public BinarySearch(boolean trace) {
+		super(trace);
+	}
+	
 	@Override
 	protected int execute(T[] array, T element) {
 		

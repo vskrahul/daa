@@ -10,7 +10,8 @@ public class ArrayUtils {
 		arr[b] = temp;
 	}
 	
-	public static <T> void print(T[] array) {
-		System.out.println(Arrays.toString(array));
+	public static <T> void print(T[] array, boolean flag) {
+		if(flag)
+			System.out.println(Arrays.toString(array));
 	}
 }
