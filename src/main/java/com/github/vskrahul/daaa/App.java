@@ -1,7 +1,7 @@
 package com.github.vskrahul.daaa;
 
-import com.github.vskrahul.daaa.sorting.*;
-import com.github.vskrahul.daaa.sorting.Sorting;
+import com.github.vskrahul.daaa.search.BinarySearch;
+import com.github.vskrahul.daaa.search.Search;
 
 /**
  * Hello world!
@@ -9,7 +9,10 @@ import com.github.vskrahul.daaa.sorting.Sorting;
  */
 public class App {
 	public static void main(String[] args) {
-		Sorting<Integer> sort = new InsertionSort<>();
-		sort.sort(new Integer[]{2,4,5,7,1,2,3,6});
+		
+		Integer[] arr = {1, 2, 2, 3, 4, 5, 6, 7};
+		
+		Search<Integer> search = new BinarySearch<>();
+		search.search(arr, 5);
 	}
 }

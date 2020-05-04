@@ -1,8 +1,8 @@
-package com.github.vskrahul.daaa.sorting;
+package com.github.vskrahul.daaa.sort;
 
 import java.util.Arrays;
 
-public class MergeSort<T extends Comparable<T>> extends AbstractSorting<T> {
+public class MergeSort<T extends Comparable<T>> extends AbstractSort<T> {
 
 	@Override
 	protected void execute(T[] array) {

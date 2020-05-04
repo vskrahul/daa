@@ -1,8 +1,8 @@
-package com.github.vskrahul.daaa.sorting;
+package com.github.vskrahul.daaa.sort;
 
 import static com.github.vskrahul.daaa.utils.ArrayUtils.*;
 
-public class InsertionSort<T extends Comparable<T>> extends AbstractSorting<T> {
+public class InsertionSort<T extends Comparable<T>> extends AbstractSort<T> {
 
 	@Override
 	protected void execute(T[] array) {
