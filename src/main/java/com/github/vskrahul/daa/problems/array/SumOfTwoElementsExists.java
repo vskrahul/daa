@@ -1,4 +1,4 @@
-package com.github.vskrahul.daa.search.problem;
+package com.github.vskrahul.daa.problems.array;
 
 import com.github.vskrahul.daa.search.BinarySearch;
 import com.github.vskrahul.daa.search.Search;

@@ -5,7 +5,7 @@
   <artifactId>daa</artifactId>
   <packaging>jar</packaging>
   <version>1.0.0</version>
-  <name>daaa</name>
+  <name>daa</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>

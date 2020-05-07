@@ -1,7 +1,6 @@
 package com.github.vskrahul.daa;
 
-import com.github.vskrahul.daa.search.BinarySearch;
-import com.github.vskrahul.daa.search.Search;
+import com.github.vskrahul.daa.sort.PriorityQueue;
 
 /**
  * Hello world!
@@ -10,9 +9,22 @@ import com.github.vskrahul.daa.search.Search;
 public class App {
 	public static void main(String[] args) {
 		
-		Integer[] arr = {1, 2, 2, 3, 4, 5, 6, 7};
+		Integer[] array = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
 		
-		Search<Integer> search = new BinarySearch<>();
-		search.search(arr, 5);
+		PriorityQueue<Integer> queue = new PriorityQueue<>(array, true);
+		
+		System.out.println(queue.peak());
+		
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
+		System.out.println(queue.extract());
 	}
 }
