@@ -3,7 +3,10 @@ package com.github.vskrahul.daa.sort;
 import static com.github.vskrahul.daa.utils.HeapUtils.buildMaxHeap;
 import static com.github.vskrahul.daa.utils.HeapUtils.buildMinHeap;
 import static com.github.vskrahul.daa.utils.HeapUtils.maxHeapify;
-import static com.github.vskrahul.daa.utils.HeapUtils.minHeapify;
+
+import com.github.vskrahul.daa.utils.ArrayUtils;
+
+import static com.github.vskrahul.daa.utils.HeapUtils.*;
 
 public class PriorityQueue<T extends Comparable<T>> {
 
@@ -42,6 +45,26 @@ public class PriorityQueue<T extends Comparable<T>> {
 				minHeapify(arr, heapSize, 0);
 		}
 		return result;
+	}
+	
+	public void insert(T t) {
+		
+		synchronized (lock) {
+			if(this.heapSize == this.arr.length) {
+				throw new RuntimeException("Not Enough Space!-");
+			}
+			
+			this.heapSize++;
+			this.arr[this.heapSize - 1] = t;
+			int i = this.heapSize - 1;
+			boolean flag = max ? this.arr[parent(i)].compareTo(this.arr[i]) < 0 
+								: this.arr[parent(i)].compareTo(this.arr[i]) > 0;
+			while(i > 0 && flag) {
+				ArrayUtils.swap(arr, parent(i), i);
+				i = parent(i);
+			}
+		}
+		
 	}
 	
 	public T peak() {
