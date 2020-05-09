@@ -27,5 +27,8 @@ public class App {
 		System.out.println("maximum = " + bst.maximum());
 		System.out.println("successor of 5 = " + bst.successor(5));
 		System.out.println("successor of 16 = " + bst.successor(16));
+		
+		System.out.println("predecessor of 5 = " + bst.predecessor(5));
+		System.out.println("predecessor of 16 = " + bst.predecessor(16));
 	}
 }

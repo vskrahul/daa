@@ -8,33 +8,32 @@ public class BST<V extends Comparable<V>> {
 		
 		Node<V> node = new Node<>(value);
 		Node<V> temp = this.root;
+		Node<V> parent = null;
 		
-		if(temp == null) {
-			this.root = node;
-			return true;
-		}
-		
-		while(true) {
+		while(temp != null) {
+			parent = temp;
 			if(node.getValue().compareTo(temp.getValue()) < 0) {
-				if(temp.getLeft() == null) {
-					temp.setLeft(node);
-					node.setParent(temp);
-					return true;
-				}
 				temp = temp.getLeft();
 			} else {
 				if(node.getValue().compareTo(temp.getValue()) > 0) {
-					if(temp.getRight() == null) {
-						temp.setRight(node);
-						node.setParent(temp);
-						return true;
-					}
 					temp = temp.getRight();
 				} else {
 					return false;
 				}
 			}
 		}
+		if(parent == null) { // tree was empty
+			this.root = node;
+		} else {
+			if(parent.getValue().compareTo(node.getValue()) > 0) {
+				parent.setLeft(node);
+			} else {
+				parent.setRight(node);
+			}
+			node.setParent(parent);
+		}
+		
+		return true;
 	}
 	
 	public boolean search(V value) {
@@ -95,7 +94,18 @@ public class BST<V extends Comparable<V>> {
 	}
 	
 	private V predecessor(Node<V> node) {
-		return null;
+		
+		if(node.getLeft() != null)
+			return node.getLeft().getValue();
+		
+		Node<V> temp = node.getParent();
+		
+		while(temp != null && isLeftNode(node)) {
+			node = temp;
+			temp = temp.getParent();
+		}
+		
+		return temp.getValue();
 	}
 	
 	private boolean search(Node<V> node, V value) {
