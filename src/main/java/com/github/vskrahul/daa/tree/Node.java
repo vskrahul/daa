@@ -21,4 +21,13 @@ class Node<V extends Comparable<V>> {
 	public Node(V value) {
 		this.value = value;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof Node) {
+			Node n = (Node)obj;
+			return this.value.equals(n.getValue());
+		}
+		return false;
+	}
 }

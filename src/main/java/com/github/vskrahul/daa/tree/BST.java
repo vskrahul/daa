@@ -1,5 +1,7 @@
 package com.github.vskrahul.daa.tree;
 
+import java.util.Stack;
+
 public class BST<V extends Comparable<V>> {
 
 	private Node<V> root;
@@ -34,6 +36,48 @@ public class BST<V extends Comparable<V>> {
 		}
 		
 		return true;
+	}
+	
+	/**
+	 * <p>
+	 * We can use {@code predecessor} or {@code successor} to replace
+	 * the deleted node. Both are the valid to replace.
+	 * <p>
+	 * We are using {@code predecessor} in this example.
+	 * @param v value to be deleted
+	 */
+	public void delete(V v) {
+		Node<V> node = searchNode(this.root, v);
+		Node<V> predecessor = null;
+		
+		if(isLeaf(node) || hasOneChild(node)) {
+			if(isRightNode(node))
+				node.getParent().setRight(child(node));
+			else
+				node.getParent().setLeft(child(node));
+		} else {
+			predecessor = predecessorNode(node);
+			/*
+			 * predecessor will be a leaf node,
+			 * But that could have LEFT child
+			 */
+			predecessor.getParent().setRight(predecessor.getLeft());
+			predecessor.getLeft().setParent(predecessor.getParent());
+			
+			if(isRightNode(node)) {
+				node.getParent().setRight(predecessor);
+			} else {
+				node.getParent().setLeft(predecessor);
+			}
+			predecessor.setRight(node.getRight());
+			node.getRight().setParent(predecessor);
+			
+			predecessor.setLeft(node.getLeft());
+			node.getLeft().setParent(predecessor);
+			
+			predecessor.setParent(node.getParent());
+		}
+		nullify(node);
 	}
 	
 	public boolean search(V value) {
@@ -96,7 +140,7 @@ public class BST<V extends Comparable<V>> {
 	private V predecessor(Node<V> node) {
 		
 		if(node.getLeft() != null)
-			return node.getLeft().getValue();
+			return maximum(node.getLeft());
 		
 		Node<V> temp = node.getParent();
 		
@@ -106,6 +150,21 @@ public class BST<V extends Comparable<V>> {
 		}
 		
 		return temp.getValue();
+	}
+	
+	private Node<V> predecessorNode(Node<V> node) {
+		
+		if(node.getLeft() != null)
+			return maximumNode(node.getLeft());
+		
+		Node<V> temp = node.getParent();
+		
+		while(temp != null && isLeftNode(node)) {
+			node = temp;
+			temp = temp.getParent();
+		}
+		
+		return temp;
 	}
 	
 	private boolean search(Node<V> node, V value) {
@@ -144,6 +203,13 @@ public class BST<V extends Comparable<V>> {
 		return node.getValue();
 	}
 	
+	private Node<V> maximumNode(Node<V> node) {
+		if(node.getRight() != null) {
+			return maximumNode(node.getRight());
+		}
+		return node;
+	}
+	
 	private void inOrder(Node<V> node) {
 		if(node == null)
 			return;
@@ -169,10 +235,61 @@ public class BST<V extends Comparable<V>> {
 	}
 	
 	private boolean isLeftNode(Node<V> node) {
-		return node.getParent().getLeft().getValue().equals(node.getValue());
+		if(node.getParent() == null)
+			return false;
+		return node.equals(node.getParent().getLeft());
 	}
 	
 	private boolean isRightNode(Node<V> node) {
-		return node.getParent().getRight().getValue().equals(node.getValue());
+		if(node.getParent() == null)
+			return false;
+		return node.equals(node.getParent().getRight());
+	}
+	
+	private boolean isLeaf(Node<V> node) {
+		return node != null && node.getRight() == null && node.getLeft() == null;
+	}
+	
+	private boolean hasOneChild(Node<V> node) {
+		if(node == null)
+			return false;
+		return (node.getLeft() != null && node.getRight() == null)
+				||
+				(node.getLeft() == null && node.getRight() != null);
+	}
+	
+	private Node<V> child(Node<V> node) {
+		Node<V> child = null;
+		if(hasOneChild(node))
+			child = node.getLeft() == null ? node.getRight() : node.getLeft();
+		return child;
+	}
+	
+	private void nullify(Node<V> node) {
+		node.setLeft(null);
+		node.setRight(null);
+		node.setParent(null);
+	}
+	
+	public void print() {
+		
+		Stack<Node<V>> stack1 = new Stack<>();
+		Stack<Node<V>> stack2 = new Stack<>();
+		
+		stack1.push(this.root);
+		
+		while(!stack1.empty()) {
+			Node<V> node = stack1.pop();
+			if(node.getLeft() != null) stack2.push(node.getLeft());
+			if(node.getRight() != null) stack2.push(node.getRight());
+			System.out.print(node.getValue() + " ");
+			
+			if(stack1.empty()) {
+				while(!stack2.empty()) {
+					stack1.push(stack2.pop());
+				}
+				System.out.print("\n");
+			}
+		}
 	}
 }

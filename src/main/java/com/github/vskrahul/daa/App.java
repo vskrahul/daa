@@ -9,26 +9,17 @@ import com.github.vskrahul.daa.tree.BST;
 public class App {
 	public static void main(String[] args) {
 		
-		//Integer[] array = {1, 4, 5, 10, 16, 17, 21};
-		int[] array = {10, 4, 17, 1, 5, 16, 21};
+		int[] arr = {10, 4, 17, 2, 8, 12, 22, 1, 3, 7, 9, 11, 14, 20, 24, 6, 13, 19, 21, 23, 26};
+		//int[] arr = {10, 4, 17, 1, 5, 16, 21};
 		
 		BST<Integer> bst = new BST<>();
 		
-		for(int i : array) {
+		for(int i : arr) {
 			bst.insert(i);
 		}	
-		bst.inOrder();
-		
-		for(int i : array) {
-			System.out.println(bst.search(i));
-		}
-		
-		System.out.println("minimum = " + bst.minimum());
-		System.out.println("maximum = " + bst.maximum());
-		System.out.println("successor of 5 = " + bst.successor(5));
-		System.out.println("successor of 16 = " + bst.successor(16));
-		
-		System.out.println("predecessor of 5 = " + bst.predecessor(5));
-		System.out.println("predecessor of 16 = " + bst.predecessor(16));
+		bst.print();
+		System.out.println("========================================");
+		bst.delete(17);
+		bst.print();
 	}
 }
