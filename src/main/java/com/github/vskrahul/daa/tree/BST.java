@@ -62,7 +62,8 @@ public class BST<V extends Comparable<V>> {
 			 * But that could have LEFT child
 			 */
 			predecessor.getParent().setRight(predecessor.getLeft());
-			predecessor.getLeft().setParent(predecessor.getParent());
+			if(predecessor.getLeft() != null)
+				predecessor.getLeft().setParent(predecessor.getParent());
 			
 			if(isRightNode(node)) {
 				node.getParent().setRight(predecessor);

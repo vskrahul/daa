@@ -19,7 +19,7 @@ public class App {
 		}	
 		bst.print();
 		System.out.println("========================================");
-		bst.delete(17);
+		bst.delete(22);
 		bst.print();
 	}
 }
